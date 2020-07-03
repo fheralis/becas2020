@@ -1,0 +1,33 @@
+@font-face {
+  font-family: Dosis;
+  src: url('http://localhost/becas2019/sources/css/Dosis/Dosis-Regular.ttf');
+  /*src: url('http://192.168.12.20/becas2019/sources/css/Dosis/Dosis-Regular.ttf');*/
+}
+
+body{
+  font-family: 'Dosis', sans-serif;
+}
+
+/*@import url('https://fonts.googleapis.com/css?family=Asap');
+
+body{
+  font-family: 'Asap', sans-serif;
+}*/
+
+/*@import url('https://fonts.googleapis.com/css?family=Lato');
+
+body{
+  font-family: 'Lato', sans-serif;
+}*/
+
+/*@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+body{
+  font-family: 'Ubuntu', sans-serif;
+}*/
+
+/*@import url('https://fonts.googleapis.com/css?family=Oswald');
+
+body{
+  font-family: 'Oswald', sans-serif;
+}*/
