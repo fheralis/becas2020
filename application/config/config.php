@@ -24,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 // $config['base_url'] = 'http://aplicaciones.setab.gob.mx/becas2019/';
-$config['base_url'] = 'http://localhost/becas2019/';
+$config['base_url'] = 'http://localhost/becas2020/';
 /*
 |--------------------------------------------------------------------------
 | Index File

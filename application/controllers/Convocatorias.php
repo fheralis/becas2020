@@ -11,6 +11,7 @@ class Convocatorias extends CI_Controller {
 		$this->load->model("model_convocatorias");
 		$this->load->model("model_convocatorias_letras");
 		$this->load->model("model_estudiantes");
+		$this->load->model('model_niveles_educativos');
 	}
 
 	public function home(){
@@ -36,14 +37,16 @@ class Convocatorias extends CI_Controller {
 
 	// muestra el formulario que muestra las convocatorias vigentes
 	public function index(){
-
+        $ne = $this->model_niveles_educativos->gets_niveles_educativos();
 		if($this->session->blogin==TRUE){
 			redirect('solicitudes/registro','refresh');
-		}
+		}		
 		else{
 			$data=array(
 				'titulo'								=>	'Sistema de Becas',
-				'plantilla'							=>	$this->plantilla,
+				'plantilla'								=>	$this->plantilla,
+				'niveles_educativos'					=>  $ne,
+				'letras'								=> 	$this->model_convocatorias_letras->gets_letras_del_dia(1),
 				'view'									=>	'convocatorias/index'
 			);
 			$this->load->view($this->body,$data);
@@ -66,20 +69,15 @@ class Convocatorias extends CI_Controller {
 
 	/*verifica la curp si no esta registrado ya*/
 	function ingresar_registro(){
-
 		//BUSCAR LAS LETRAS VALIDAS
 		$letras=$this->model_convocatorias_letras->gets_letras_del_dia(1);
 		//SUSTRAER LA PRIMERA LETRA
 		$letra=substr($this->input->post("curp"),0,1);
 		//BUSCAR LA LETRA DE LA CURP EN LA LISTA DE LETRAS VALIDAS
 		$pos=strpos($letras["letras"],$letra);
-
 		//$promedio=$this->model_estudiantes->promedio($this->input->post("curp"));
-
 		// if($promedio){
-			
 		// }
-
 		//RETORNAR EL VALOR OBTENIDO
 		if($pos===FALSE){
 			echo 2;
@@ -93,7 +91,7 @@ class Convocatorias extends CI_Controller {
 			if($existe==TRUE){
 				if($existe["tab"]==3){
 					$tab=3;
-				}
+				} 
 				else if($existe["tab"]==2){
 					$tab=2;
 				}

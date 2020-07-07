@@ -8,6 +8,13 @@ class Model_niveles_educativos extends CI_Model {
 		parent::__construct();
 	}
 	
+	public function gets_niveles_educativos(){
+		$resultado = $this->db->get('niveles_educativos');
+		if($resultado->num_rows() > 0 )
+			return $resultado->result_array();
+		else
+			return FALSE;
+	}
 
 	//para el select dependiente
 	public function gets_select($data){

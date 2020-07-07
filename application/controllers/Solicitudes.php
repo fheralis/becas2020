@@ -316,20 +316,20 @@ class Solicitudes extends CI_Controller {
 
 				$data=array(
 					'titulo'								=>	'Registro',
-					'plantilla'							=>	$this->plantilla,
+					'plantilla'								=>	$this->plantilla,
 					'view'									=>	'solicitudes/registro',
 					'estados'								=>	$this->model_estados->gets_estados(),
-					'situacion_familiares'	=>	$this->model_situacion_familiares->gets_situacion_familiares(),
-					'municipios_conv'				=>	$this->model_municipios->gets_municipios_convocatorias(),
-					'parentescos'						=>	$this->model_parentescos->gets_parentescos(),
-					'estados_civiles'				=>	$this->model_estados_civiles->gets_estados_civiles(),
-					'preguntas'							=>	$this->model_preguntas->gets_preguntas(),
+					'situacion_familiares'					=>	$this->model_situacion_familiares->gets_situacion_familiares(),
+					'municipios_conv'						=>	$this->model_municipios->gets_municipios_convocatorias(),
+					'parentescos'							=>	$this->model_parentescos->gets_parentescos(),
+					'estados_civiles'						=>	$this->model_estados_civiles->gets_estados_civiles(),
+					'preguntas'								=>	$this->model_preguntas->gets_preguntas(),
 					//'info'									=>	$this->getInfo()
 					'info'									=>	$info,
-					'infoPadre'							=>	$infoPadre,
-					'infoMadre'							=>	$infoMadre,
+					'infoPadre'								=>	$infoPadre,
+					'infoMadre'								=>	$infoMadre,
 					'infoCP'								=>	$infoCP,
-					'infoTutor'							=>	$infoTutor
+					'infoTutor'								=>	$infoTutor
 				);
 				$this->load->view($this->body,$data);
 			}
@@ -344,20 +344,22 @@ class Solicitudes extends CI_Controller {
 		//QUTF801122HTCVRS02
 		if($info==FALSE){
 			return array(
-				'curp'											=>	'',
+				'curp'											=>	$this->session->userdata('bcurp'),
 				'nombres'										=>	'',
-				'primer_apellido'						=>	'',
-				'segundo_apellido'					=>	'',
+				'primer_apellido'								=>	'',
+				'segundo_apellido'								=>	'',
 				'email'											=>	'',
+				'telefono'										=> 	'',
 				'estados'										=>	27,
 				'calle'											=>	'',
 				'numero'										=>	'',
-				'grado_cursado'							=>	'',
-				'promedio_general'					=>	'',
-				'promedio_basicas'					=>	'',
-				'grado_cursar'							=>	'',
-				'nivel_educativo_id'				=>	'0',
-				'clave'											=>	''
+				'grado_cursado'									=>	'',
+				'promedio_general'								=>	'',
+				'promedio_basicas'								=>	'',
+				'grado_cursar'									=>	'',
+				'nivel_educativo_id'							=>	'0',
+				'clave'											=>	'',
+				'fecha_nacimiento'								=>  '' 
 			);
 		}
 		else{
